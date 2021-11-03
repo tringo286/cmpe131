@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>   	
+    	{% for city in cities %}
+        <li>{{ city }}</li>
+     	{% endfor %}
+    </ul>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+	{% for message in messages %}
+		{{ message }}
+	{% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form method="POST" novalidate>
+    	{{ form.hidden_tag() }}
+
+    	<p> {{ form.city_name.label }} {{ form.city_name(size=32) }}</p>
+
+    	<p> {{ form.city_rank.label }} {{ form.city_rank(size=32) }}</p>
+
+	<p> {{ form.is_visited.label }} {{ form.is_visited() }}</p>
+
+    	<p> {{ form.submit.label }} {{ form.submit() }}</p>
+    </form>	
+{% endblock %}
