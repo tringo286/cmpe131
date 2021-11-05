@@ -14,6 +14,4 @@ myapp_obj.config.from_mapping(
 
 db = SQLAlchemy(myapp_obj) 
 
-
-
 from myapp import routes, models
